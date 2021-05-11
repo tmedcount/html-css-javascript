@@ -1,10 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>HTML5 실습</title>
+    <style>
+      table,
+      tr,
+      th,
+      td {
+        font-size: 13px;
+        border: 1px solid dodgerblue;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        background-color: yellow;
+        height: 60px;
+        width: 100%;
+      }
+      .nav {
+        width: 15%;
+        background-color: orange;
+        float: left;
+        height: 90px;
+      }
+      .section {
+        width: 70%;
+        background-color: olivedrab;
+        float: left;
+        height: 90px;
+      }
+      .aside {
+        background-color: skyblue;
+        float: left;
+        height: 90px;
+        width: 15%;
+      }
+      .footer {
+        background-color: plum;
+        height: 60px;
+        width: 100%;
+        clear: both;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header class="header">header</header>
+    <nav class="nav">nav</nav>
+    <section class="section">section</section>
+    <aside class="aside">aside</aside>
+    <footer class="footer">footer</footer>
+    <br />
+    <br />
+    <!-- tr(table row) / td(table data) -->
+    <table>
+      <tr>
+        <th>순번</th>
+        <th>책이름</th>
+        <th>가격</th>
+        <th>판매량</th>
+        <th>판매액</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>HTML</td>
+        <td>7,000</td>
+        <td rowspan="2">1,000</td>
+        <!-- rowspan - 세로칸 병합 -->
+        <td>7,000,000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>JS</td>
+        <td>7,000</td>
+        <!-- <td>1,000</td> -->
+        <td>7,000,000</td>
+      </tr>
+      <tr>
+        <td colspan="4">합계</td>
+        <!-- colspan - 가로칸 병합 -->
+        <td>14,000,000</td>
+      </tr>
+    </table>
+    <!-- action - 데이터 자료 전송(method cf.) POST), radio(file) - 이름이 같다., submit(제출) -->
+    <form action="https://naver.com" method="GET">
+      <input type="text" name="text" id="" />
+      <input type="password" name="password" id="" />
+      <input type="date" name="date" id="" />
+      <input type="color" name="color" id="" />
+      <input type="radio" name="radio" id="" />
+      <input type="radio" name="radio" id="" />
+      <input type="checkbox" name="checkbox1" id="" />
+      <input type="checkbox" name="checkbox2" id="" />
+      <input type="file" name="file" id="" />
+      <input type="file" name="file" id="" />
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <input type="button" value="버튼" />
+      <input type="reset" value="입력취소" />
+      <input type="submit" value="서밋" />
+    </form>
+    <iframe
+      width="100%"
+      height="400px"
+      src="https://www.youtube.com/embed/OyTIMOlY1ag"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <!-- 컨텐츠 경로 / .은 현재폴더 -->
+    <!-- 상대경로 -->
+    <img style="width: 100%" src="./img/tree.jpg" alt="엑박일 때 표시할 내용" />
+    <!-- 절대경로 -->
+    <img
+      style="width: 100%"
+      src="/test/img/tree.jpg"
+      alt="엑박일 때 표시할 내용"
+    />
+    <br />
+    <br />
+    <div style="background-color: greenyellow">
+      <a href="#">네이버</a>
+      <a href="#">다음</a>
+      <a href="#">네이트</a>
+    </div>
+    <ol type="I">
+      <li>헬로 html</li>
+      <li>헬로 html</li>
+      <li>헬로 html</li>
+    </ol>
+    <ul>
+      <li>헬로 html</li>
+      <li>헬로 html</li>
+      <li>헬로 html</li>
+    </ul>
+    <p>H<sub>2</sub>0</p>
+    <p>X<sup>2</sup>=4</p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>대통령은 전시·사변 또는 이에 준하는 국...</td>
+          <td>신숙주</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>혼인과 가족생활은 개인의 존엄과 양성의 ...</td>
+          <td>정약용</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>대통령이 궐위되거나 사고로 인하여 직무를...</td>
+          <td>지석영</td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td>대통령은 취임에 즈음하여 다음의 선서를 ...</td>
+          <td>신숙주</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td>정기회의 회기는 100일을, 임시회의 회기는...</td>
+          <td>장보고</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- 로렘 입숨 -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+      perferendis dolorem ullam mollitia nihil veniam. Non quas nobis doloribus,
+      unde quidem velit voluptas quibusdam quasi natus quae nemo inventore
+      veritatis.
+    </p>
+    <h1>헬로 html5</h1>
+    <h2>헬로 html5</h2>
+    <hr />
+    <br />
+    <br /><br />
+    <span style="color: red">헬로 HTML1</span>
+    <span>헬로 HTML2</span>
+    <hr />
+    <p>헬로 HTML1</p>
+    <p>헬로 HTML2</p>
+    <br /><br />
+    <h3>헬로 html5</h3>
+    <h4>헬로 html5</h4>
+    <h5>헬로 html5</h5>
+    <h6>헬로 html5</h6>
+  </body>
 </html>
