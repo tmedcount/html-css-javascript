@@ -11,22 +11,113 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
-    <style></style>
+    <style>
+      /* div * {
+        color: blue;
+      } */
+      h1 {
+        background-color: dodgerblue;
+      }
+      .box-one,
+      .box-two {
+        background-color: tomato;
+      }
+      #box-four,
+      #box-five {
+        background-color: yellow;
+      }
+      .box-one p:after {
+        content: " +add";
+      }
+      .box-one p:before {
+        content: "add+ ";
+      }
+      .box-two > a:hover {
+        color: whitesmoke;
+      }
+      .box-one {
+        font-size: 8px;
+        /* font-size: 1rem; 16px  */
+      }
+      .box-one > p {
+        font-size: 1.5em;
+        /* font-size: 1.5rem; */
+        /* 위에서부터 해석하는 방식 - 인터프리터형 */
+      }
+      .box-one {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        padding: 20px;
+        margin: 20px 10px 30px 80px; /* 시계 방향 */
+        margin: 30px 60px; /* 상하 - 좌우 */
+        margin: 0px auto; /* 가운데 정렬 */
+        margin: 0px;
+        border: 10px solid black;
+        box-sizing: border-box; /* 필수 */
+        position: relative; /* 기본 */
+        position: fixed;
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+      .box-two {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
   <body>
+    <h1>Hello CSS</h1>
+    <div class="box-one">
+      <p style="color: whitesmoke"><a href="#">상단으로 이동</a></p>
+    </div>
+    <div class="box-two"><a href="#">two two two</a></div>
+    <div class="box-three">three</div>
+    <div id="box-four">four</div>
+    <div id="box-five">five</div>
     <p>
-      <span style="color: dodgerblue">Lorem ipsum</span> dolor, sit amet
-      consectetur adipisicing elit. Doloremque molestias, dolores officiis ad
-      corrupti laudantium nostrum dicta adipisci, accusamus assumenda harum
-      mollitia fugit corporis aspernatur, magnam excepturi amet. Voluptatibus
-      laudantium vitae voluptatem recusandae rerum iure provident asperiores
-      veritatis natus nobis temporibus molestiae, quis distinctio vero libero
-      doloremque aperiam atque. A quam explicabo illo ratione laudantium commodi
-      beatae, odio, nostrum consectetur saepe enim! Impedit quae natus excepturi
-      eum beatae totam doloribus tempora magnam nesciunt inventore accusamus
-      ipsam tenetur repellat architecto nobis voluptatum repudiandae sint ullam,
-      mollitia cum veritatis adipisci? Obcaecati ab reprehenderit illum minus
-      tempora eos nemo placeat quo totam dolorem.
+      <span style="color: dodgerblue">Lorem ipsum</span> dolor sit amet
+      consectetur adipisicing elit. Expedita soluta odit ipsa in quasi, iste quo
+      deleniti voluptatem eligendi sint cum maxime, voluptas culpa, omnis
+      consectetur magni maiores suscipit consequatur eum vero aperiam esse
+      deserunt dicta totam? Laboriosam saepe corporis, consectetur fuga adipisci
+      commodi pariatur labore non ratione magnam deserunt unde, asperiores
+      reprehenderit quia necessitatibus reiciendis soluta alias ad accusamus!
+      Saepe doloribus nam molestias ab quaerat laboriosam illum id quidem velit
+      qui. Enim, repellendus. Enim repellat ipsum doloribus, quos hic eum
+      incidunt itaque nesciunt corrupti qui quas magnam architecto dignissimos
+      facilis mollitia, quis in cupiditate ipsa sed exercitationem deleniti
+      pariatur!
+    </p>
+    <p>
+      <span style="color: dodgerblue">Lorem ipsum</span> dolor sit amet
+      consectetur adipisicing elit. Expedita soluta odit ipsa in quasi, iste quo
+      deleniti voluptatem eligendi sint cum maxime, voluptas culpa, omnis
+      consectetur magni maiores suscipit consequatur eum vero aperiam esse
+      deserunt dicta totam? Laboriosam saepe corporis, consectetur fuga adipisci
+      commodi pariatur labore non ratione magnam deserunt unde, asperiores
+      reprehenderit quia necessitatibus reiciendis soluta alias ad accusamus!
+      Saepe doloribus nam molestias ab quaerat laboriosam illum id quidem velit
+      qui. Enim, repellendus. Enim repellat ipsum doloribus, quos hic eum
+      incidunt itaque nesciunt corrupti qui quas magnam architecto dignissimos
+      facilis mollitia, quis in cupiditate ipsa sed exercitationem deleniti
+      pariatur!
+    </p>
+    <p>
+      <span style="color: dodgerblue">Lorem ipsum</span> dolor sit amet
+      consectetur adipisicing elit. Expedita soluta odit ipsa in quasi, iste quo
+      deleniti voluptatem eligendi sint cum maxime, voluptas culpa, omnis
+      consectetur magni maiores suscipit consequatur eum vero aperiam esse
+      deserunt dicta totam? Laboriosam saepe corporis, consectetur fuga adipisci
+      commodi pariatur labore non ratione magnam deserunt unde, asperiores
+      reprehenderit quia necessitatibus reiciendis soluta alias ad accusamus!
+      Saepe doloribus nam molestias ab quaerat laboriosam illum id quidem velit
+      qui. Enim, repellendus. Enim repellat ipsum doloribus, quos hic eum
+      incidunt itaque nesciunt corrupti qui quas magnam architecto dignissimos
+      facilis mollitia, quis in cupiditate ipsa sed exercitationem deleniti
+      pariatur!
     </p>
   </body>
 </html>

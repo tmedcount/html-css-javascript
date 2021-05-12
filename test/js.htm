@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 실습</title>
+    <style>
+      table,
+      tr,
+      td,
+      th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th {
+        width: 25%;
+      }
+    </style>
+    <!-- JQuery Core Import -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // CDN(Cotents Delivery Network) - 인터넷으로 외부 프로그램을 갖다가 사용.
+      // $시작 문서가 준비 되었을 때 자동구현 - $(document).ready(function(){});
+      // 인터프리터의 단점인 순서를 신경쓰지 않아도 된다.
+      $(document).ready(function () {
+        // html문서를 다 읽어 들인 후에 블럭 안의 내용이 실행 된다.
+        // $('id선택자').click(callbackF(){구현내용});
+        $("#checkValue").click(function () {
+          alert($("#name").val());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table id="board">
+      <tr>
+        <th>id</th>
+        <th>age</th>
+        <th>eyeColor</th>
+        <th>name</th>
+        <tbody></tbody>
+      </tr>
+    </table>
+    <div id="one">헬로 자바스크립트</div>
+    <p class="two">헬로 자바스크립트2</p>
+    <input type="text" name="name" id="name" value="테스트" />
+    <!-- 전송 -->
+    <button onclick="checkValue('zzz')">입력값 확인</button>
+    <button id="checkValue">jQuery 입력값 확인</button>
+    <br />
+    <script>
+      // Java - 컴파일러 언어(class 단위로 해석, 순서 중요X)
+      // JavaScript - 인터프리터 언어(위에서 한 줄씩 해석, 순서 중요O) = Python
+      // 주석 사용, 2) 개체(태크) 선택 방법, 디버그 방법 cf.) /* */(여러 줄 주석)
+
+      document.getElementById("one").innerHTML = "Hello <h1>JavaScript</h1>"; // 2)
+      document.getElementById("one").innerText = "Hello <h1>JavaScript</h1>";
+
+      /* 예전 JS를 배우는 이유 = IoT
+      IoT 임베디드프로그램에서는 jQuery를 사용 못하는 경우가 있음.IoT
+      위 경우에 NativeJS를 사용. */
+      var debug = document.getElementById("one");
+      //   window.alert(debug.innerText); 3) 1
+      console.log(debug.innerText); // 3) 2 - json 빅데이터 확인
+
+      /* Variable
+       데이터를 사용하는 방법
+       기본형: number(정수, 실수), string, boolean
+       사용자정의형: object(array), function
+       입력한 값에 따라 변수형이 결정된다. */
+
+      var 변수1 = 100;
+      document.write("변수타입은: ", typeof 변수1);
+      document.write(변수1 + 변수1);
+      document.write("<br>");
+
+      변수1 = "100"; // cf.) Java - '문자', '문자열'
+      document.write("변수타입은: ", typeof 변수1);
+      document.write(변수1 + 변수1);
+      document.write("<br>");
+
+      var name = "KangHoSung"; // Array
+      document.write(name[4]);
+      document.write("<br>");
+
+      // 4칙 연산
+      var x, y;
+      x = 5;
+      y = 2;
+      document.write(x + y);
+      document.write("<br>");
+      document.write(x - y);
+      document.write("<br>");
+      document.write(x * y);
+      document.write("<br>");
+      document.write(x / y);
+      document.write("<br>");
+      document.write(x ** y); // 제곱
+      document.write("<br>");
+      document.write(x % y); // 나머지
+      document.write("<hr>");
+
+      // document 객체 안에 변수, 함수, 배열, 객체들 = 맴버변수(.으로 직접 접근한다.)
+
+      // 비교 연산
+      var x, y, z;
+      x = 5;
+      y = 2;
+      z = "5";
+      document.write(x > y);
+      document.write("<br>");
+      document.write(x >= y);
+      document.write("<br>");
+      document.write(x < y);
+      document.write("<br>");
+      document.write(x <= y);
+      document.write("<br>");
+      document.write(x == z);
+      document.write("<br>");
+      document.write(x === z);
+      document.write("<hr>");
+
+      // 논리 연산(&&(*), ||(+), !)
+      var x, y;
+      x = true;
+      y = false;
+      document.write(x && y); // 곱하기, 1 = true, 0 = false => 1 * 0 = 0
+      document.write("<br>");
+      document.write(x || y); // 더하기, 1 = true, 0 = false => 1 + 0 = 1
+      document.write("<br>");
+      document.write(!y); // !false = true
+      document.write("<hr>");
+
+      // 함수
+      var plus = function (x, y) {
+        // anomymous = callback = 자동실행 function
+        var z;
+        z = x + y;
+        return z;
+      };
+      function plus(x, y) {
+        // 기본 형태의 함수
+        var z;
+        z = x + y;
+        return z;
+      }
+      document.write(plus(5, 2));
+      document.write("<br>");
+      document.write("plus라는 변수는 데이터 타입이: ", typeof plus);
+      document.write("<hr>");
+
+      // 내장 함수
+      // JS는 웹브라이저에 내장된 언어
+      var txt = "KangHoSung is JavaScript";
+      var num = 10;
+      document.write(txt.length); // 변수
+      document.write("<br>");
+      document.write(txt.indexOf("is"));
+      document.write("<br>");
+      document.write(txt.slice(0, 7)); // Last index -1, 7 미만, [0] ~ [6]
+      document.write("<br>");
+      document.write(txt.replace("is", "는"));
+      document.write("<br>");
+      document.write(txt.toUpperCase());
+      document.write("<br>");
+      document.write(txt.toLowerCase());
+      document.write("<br>");
+      document.write(num.toFixed(6)); // 소수점 이하를 6자리
+      document.write("<br>");
+      document.write(num + num);
+      document.write("<br>");
+      document.write(num.toString() + num.toString());
+      document.write("<br>");
+      document.write(Math.PI); // Interface는 함수명만 있고 구현 내용은 없는 데이터자료형
+      document.write("<br>");
+      document.write(Math.max(10, 20, 30));
+      document.write("<br>");
+      document.write(Math.random() * 10); // 0~1사이 임의의 값 구하기 * 10 = 0 ~ 10, 추첨 로직, 고유 값 생성 시 사용
+      document.write("<hr>");
+
+      // 날짜 처리 함수
+      var date = new Date(); // new 키워드(예약어)로 함수형변수 생성
+      var date2 = new Date();
+      document.write(date);
+      document.write("<br>");
+      document.write(date.getMonth()); // 0부터 시작, 5월 = 4(+1)
+      document.write("<br>");
+      document.write(date.getDay()); // 일(0), 월(1), 화(2), ...
+      document.write("<br>");
+      document.write(date.getDate());
+      document.write("<br>");
+      document.write(date.getHours());
+      document.write("<hr>");
+
+      // 배열 사용
+      var arrays = [10, 20, 30, 40];
+      document.write(typeof arrays); // object(array)
+      document.write("<br>");
+      document.write(arrays[2]); // [30]
+      document.write("<br>");
+      document.write(arrays.slice(1, 4)); // index [1] ~ [4] '미만'
+      document.write("<br>");
+      document.write(arrays);
+      document.write("<br>"); // [10, 20, 30, 40]
+      document.write(arrays.pop()); // 마지막 index를 뽑아내고 삭제([40])
+      document.write("<br>");
+      document.write(arrays); // 자료 입력O([10, 20, 30])
+      document.write("<br>");
+      document.write(arrays.push(1000)); // 마지막 index에 삽입
+      document.write("<br>");
+      document.write(arrays); //자료 입력O
+      document.write("<br>");
+      document.write(arrays.join("!!")); // 마지막 index만 빼고 삽입
+      document.write("<br>");
+      document.write(arrays); // 자료 입력X
+      document.write("<br>");
+      document.write(arrays.reverse()); // 내림차순, 자료 입력O
+      document.write("<br>");
+      document.write(arrays);
+      document.write("<br>");
+      document.write(arrays.sort()); // 오름차순, 자료 입력O
+      document.write("<br>");
+      document.write(arrays);
+      document.write("<hr>");
+
+      // 인터넷 자료교환 대량 데이터형식 - xml 태그 데이터 방식(구식)
+      // json(JavaScript Object Notation) - 자바스크립트 객체 표시(최신)
+      // key:value(고유키:값)
+      var human = {
+        name: {
+          firstName: "강",
+          lastName: "호성",
+        }, // object
+        age: 10, // number
+        married: false, // boolean
+      };
+      document.write(typeof human);
+      document.write("<br>");
+      document.write(human["name"]);
+      document.write("<br>");
+      document.write(human["name"]["lastName"]);
+      document.write("<br>");
+      document.write(human["age"]);
+      document.write("<br>");
+      document.write(human["married"]);
+      document.write("<hr>");
+
+      // 조건문
+      if (false) {
+        document.write("if문 시작");
+      } else if (false) {
+        document.write("else if 첫번째");
+      } else if (false) {
+        document.write("else if 두번째");
+      } else {
+        document.write("else문");
+      }
+      document.write("<br>");
+
+      // 선택문 - Switch case
+      var key = 2;
+      switch (key) {
+        case 1:
+          document.write(key, "를 선택했습니다.");
+          break;
+        case 2:
+          document.write(key, "를 선택했습니다.");
+          break;
+        case 3:
+          document.write(key, "를 선택했습니다.");
+          break;
+        default:
+          document.write("선택된 key가 없습니다.");
+          break;
+      }
+      document.write("<hr>");
+
+      // 반복문 - for
+      var arrays = [10, 20, 30, 40, 50];
+      //   console.log(arrays.length);
+      for (var i = arrays.length - 1; i >= 0; i--) {
+        // 내림차순 출력
+        // for (var i = 0; i<arrays.length; i++) 오름차순
+        document.write(arrays[i]);
+        document.write("<br>");
+      }
+      document.write("<hr>");
+
+      // 반복문 - while(무한 반복 주의, IoT에서 많이 사용 - 온도센서 값)
+      var i = 0;
+      while (i < arrays.length) {
+        document.write(arrays[i]);
+        document.write("<br>");
+        i++;
+      }
+      document.write("<hr>");
+
+      // 변수의 영역
+      // function scope - var, block scope - let, const
+      var i = 10;
+      var i2 = 0;
+      if (i > 5) {
+        let i2 = 100;
+      } else {
+        let i2 = 200; // let변수는 영역 안쪽에서만 효력이 있음.
+      }
+      function test(params) {
+        var i2 = 200; // var 사용하면 변수 밖으로 못나감.
+      }
+      test(1);
+      document.write(i2);
+      document.write("<hr>");
+
+      // 여러 개의 element 선택
+      var names = document.getElementById("name");
+      var names = $("#name");
+      var inputName = document.getElementsByName("name");
+      var twoClassName = document.getElementsByClassName("two"); // 네이밍 방식 - 카멜(낙타 등) 표기법
+      console.log(twoClassName);
+      document.write(twoClassName[0]["innerHTML"]);
+      function checkValue(params) {
+        // 전송 받기
+        alert(params + " 버튼이 클릭 되었습니다.");
+        // alert(names.val() + "가 입력한 값입니다."); // cf.) value
+        // document.getElementById("one").style.backgroundColor = "red";
+        $("#one").css("backgroundColor", "red");
+      }
+      document.write("<br>");
+    </script>
+  </body>
+</html>
