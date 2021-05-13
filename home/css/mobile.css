@@ -1,0 +1,101 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+
+/* 모바일용 메인페이지 스타일 지정 */
+/* 공통영역 */
+body {
+  /* body a 태그에는 적용되지 않는다. */
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 16px !important; /* body의 font-size 무조건 고정 */
+  letter-spacing: -1px !important;
+  color: #444 !important;
+
+  word-wrap: break-word !important; /* 단어단위로 줄바꿈 */
+  line-height: 1 !important; /* 단위가 1이면 16px */
+}
+dl,
+ol,
+ul {
+  margin-bottom: 0 !important;
+}
+#container a:hover {
+  color: #000 !important;
+}
+a:link {
+  color: #444;
+}
+a:hover {
+  color: #fff !important;
+}
+a:visited {
+  color: #444;
+}
+a {
+  text-decoration: none;
+}
+/* //공통영역 */
+
+/* 부트스트랩 CSS 수정 */
+.claer::after {
+  content: "";
+  clear: both; /* 태그의 위치를 지정하는 속성(float)을 초기화 시킴 */
+  display: block;
+}
+.txt.right {
+  text-align: right !important;
+}
+.mt20 {
+  /* 부트스트랩의 네이밍과 동일 */
+  margin-top: 20px !important;
+}
+.w100p {
+  width: 100% !important;
+}
+/* // 부트스트랩 CSS 수정 */
+
+/* 헤더영역 */
+.on {
+  background: #32353d;
+}
+header {
+  height: 90px;
+  text-align: center;
+  z-index: 200; /* x(가로축), y(세로축), z(위쪽공간), z-index: 0은 제일 아래, 값이 높을수록 위쪽에 배치 */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* alpha - 투명도 cf.) 1:100%(black), 0.5:50% */
+  position: absolute; /* */
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.box_inner {
+  width: 100%;
+  margin: 0 auto;
+}
+/* // 헤더영역 */
+
+/* 로고영역 */
+.header_area h1 {
+  float: none;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  padding: 3px 0 0; /* 상하, 좌, 우 */
+}
+.header_area h1 a {
+  /* 로고는 이미지인데 글을 더한 이유 - 웹접근성(스크린리더: 시각장애인용 유틸리티) */
+  /* 이미지를 못 읽으니 글로 대체 */
+  display: inline-block;
+  width: 150px;
+  height: 80px;
+  background: url(../img/log.png) no-repeat; /* CSS3는 함수를 지원 */
+  background-size: 50px 60px !important; /* 백그라운드 이미지 사이즈 */
+  background-position: center center !important;
+  text-indent: -9999px; /* 들여쓰기, 이미지만 보이고 글자는 숨기기 위해(스크린리더) */
+  overflow: hidden;
+}
+/* // 로고영역 */
