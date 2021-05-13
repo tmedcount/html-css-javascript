@@ -5,8 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- jQuery core import -->
+    <script src="/home/js/jquery-3.6.0.js"></script>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <!-- jQuery 기본 구조 만들고, homepage 로 이동시키기 -->
+    <script>
+      $(document).ready(function () {
+        // rootHomepage로 접근할 때 replaceF으로 홈페이지 이동 처리
+        location.replace("/home/index.htm");
+      });
+    </script>
   </body>
 </html>

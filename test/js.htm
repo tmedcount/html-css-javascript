@@ -32,7 +32,7 @@
         // html문서를 다 읽어 들인 후에 블럭 안의 내용이 실행 된다.
         // $('id선택자').click(callbackF(){구현내용});
         $("#checkValue").click(function () {
-          alert($("#name").val());
+          alert($("#name").val() + "가 입력한 값입니다.");
         });
       });
     </script>
@@ -326,8 +326,8 @@
       document.write(twoClassName[0]["innerHTML"]);
       function checkValue(params) {
         // 전송 받기
-        alert(params + " 버튼이 클릭 되었습니다.");
-        // alert(names.val() + "가 입력한 값입니다."); // cf.) value
+        // alert(params + " 버튼이 클릭 되었습니다.");
+        alert(names.val() + "가 입력한 값입니다."); // cf.) value
         // document.getElementById("one").style.backgroundColor = "red";
         $("#one").css("backgroundColor", "red");
       }
