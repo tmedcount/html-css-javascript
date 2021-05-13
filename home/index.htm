@@ -8,49 +8,179 @@
     />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- 제이쿼리 코어 임포트 가져오기(아래) -->
     <script src="/home/js/jquery-3.6.0.js"></script>
-    <!-- 상단 바로가기 링크시 부드럽게 상단으로 이동하는 JS impot -->
+    <!-- 상단바로가기 클릭시 부드럽게 이동하는 외부 라이브러리 JS 임포트(아래) -->
     <script src="/home/js/jquery.smooth-scroll.min.js"></script>
-    <!-- 화면을 초기화 시키는(reset) 스타일 임포트(crossingBrowser) -->
+    <!-- 화면을 초기화 시키는 reset 스타일 임포트:크로스브라이징 처리하기위해서 -->
+    <!-- 크롬, IE, 엣지, 사파리, 파이어폭스 h1, p, ul, div 태그의 크기가 조금씩 틀림니다. -->
+    <!-- 작업한 결과가 모든 브라우져(크로싱브라우징)에 똑같이 보이게 하기 위한 reset.css(아래) -->
     <link rel="stylesheet" href="/home/css/reset.css" />
     <link rel="stylesheet" href="/home/css/mobile.css" />
     <style>
-      /* 모바일용 메인페이지 스타일 지정 */
-      /* 상단메뉴영역 */
-      .openMOgnb {
-        /* Global Navigation */
-        display: block;
-        position: absolute;
-        left: 15px;
-        top: 35px;
-        width: 25px;
-        height: 16px;
+      /* 모바일용 메인페이지 스타일 지정(아래) */
+      /* 본문컨테이너영역 */
+      #container,
+      footer,
+      .hdd,
+      .quick_area {
+        text-align: center;
       }
-      .hdd {
-        text-indent: -9999px;
-        position: absolute;
+      #container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 30px;
       }
-      .openMOgnb span {
-        box-sizing: border-box; /* 박스크기를 테두리까지 크기로 고정 */
+      /* 슬라이드영역 */
+      .main_rolling_pc {
         display: block;
-        width: 25px;
-        height: 3px;
-        margin-bottom: 4px;
-        border-radius: 10px; /* 테두리 라운드 처리 */
+      }
+      .visualRoll {
+        position: relative;
+        width: 100%;
+      }
+      .viewImgList {
+        position: relative;
+        width: 100%;
+      }
+      ul.viewImgList li {
+        /* ul.클래스명: ul태그중 클래스명이 viewImgList 영역 */
+        text-align: center;
+        height: 300px;
+        line-height: 550px;
+        background-size: cover; /* 배경 이미지의 크기를 꽉 채우는 값 cover */
+        width: 100%;
+      }
+      .roll_content a img {
+        display: none;
+      }
+      li.imglist0 {
+        position: relative;
+        z-index: 50;
+        background: url(./img/slide1.jpg) no-repeat;
+      }
+      li.imglist1 {
+        position: absolute;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        background: url(./img/slide1.jpg) no-repeat;
+      }
+      li.imglist2 {
+        position: absolute;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        background: url(./img/slide1.jpg) no-repeat;
+      }
+      .roll_content {
+        position: static;
+      }
+      .roll_content .roll_txtline {
+        position: absolute;
+        left: 0;
+        bottom: 60px; /* roll_content하단에서 60px 위에 위치 */
+        width: 100%;
+        line-height: 1;
+        text-align: center;
+        font-size: 22px;
+        color: #fff;
+        letter-spacing: 2px;
+      }
+      .rollbtnArea {
+        position: absolute; /* 위치를 기준위치에서 고정시켜놓겠다 */
+        width: 100%;
+        left: 0px;
+        bottom: 25px;
+        z-index: 200;
+      }
+      .rollingbtn {
+        width: 320px;
+        margin: 0 auto; /* 버튼영역에 5개 들어가고, 가운데 정렬 시킴 */
+        text-align: center;
+      }
+      .rollingbtn li.butt0 {
+        margin-left: 10px;
+      }
+      .rollingbtn li {
+        display: inline-block;
+        margin-left: 5px;
+      }
+      .rollingbtn li a {
+        vertical-align: top; /* img하고 다른태그사용시 다른 태그의 세로 정렬 */
+      }
+      /* //슬라이드영역 */
+      /* 갤러리 최근 게시물 영역 */
+      .about_area h2 {
+        font-size: 20px;
+        padding: 27px 0px 25px;
+      }
+      .about_area h2 b {
+        display: block;
+        padding-top: 10px;
+      }
+      .about_box {
         background: #fff;
       }
-      .openMOgnb span:first-of-type + span {
-        /* 인접연산자 */
-        width: 17px;
-      }
-      .openMOgnb span:last-child {
-        /* width: 25px; */
-        margin-bottom: 0px;
-      }
-      .header_cont {
+      .place_list li {
         float: none;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0px 20px;
       }
-      /* // 상단메뉴영역 */
+      .place_list li img {
+        width: 100%;
+      }
+      .place_list li h3 {
+        font-weight: bold;
+        font-size: 18px;
+        padding-top: 25px;
+      }
+      .place_list p.txt {
+        padding: 10px 50px 30px;
+        line-height: 1.4;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
+        word-break: keep-all; /* 줄바꿈X */
+        color: #666;
+      }
+      .place_list li .view {
+        padding-bottom: 10px;
+        margin: 0px 0px 30px;
+        display: inline-block;
+        padding-top: 5px;
+        border-top: 2px solid #333;
+        color: #666;
+      }
+      /* // 갤러리 최근 게시물 영역 */
+      /* 공지사항최근게시물영역 */
+      .app_line {
+        display: none; /* 태블릿, PC 전용 콘텐츠 */
+      }
+      .appbbs_area {
+        padding: 0 20px;
+        text-align: left;
+      }
+      .bbs_line {
+        float: none;
+        width: 100%;
+        padding: 20px 0;
+        border-top: 1px solid #d6d7d8;
+      }
+      .bbs_line h3 {
+        font-weight: bold;
+        font-size: 19px;
+      }
+      .bbs_line .notice_recent {
+        padding-top: 10px;
+      }
+      .bbs_line .notice_recent li {
+        padding: 8px 0px;
+      }
+      /* //공지사항최근게시물영역 */
+      /* //본문컨테이너영역 */
     </style>
     <script>
       $(document).ready(function () {});
@@ -68,10 +198,10 @@
 
           <!-- 상단메뉴메뉴영역 -->
           <p class="openMOgnb">
-            <a href="#"
-              ><b class="hdd">메뉴열기</b> <span></span><span></span
-              ><span></span
-            ></a>
+            <a href="#">
+              <b class="hdd">메뉴열기</b>
+              <span></span><span></span><span></span>
+            </a>
           </p>
           <div class="header_cont">
             <ul class="util clear">
@@ -121,21 +251,21 @@
               <li class="imglist0">
                 <div class="roll_content">
                   <a href="javascript:;">
-                    <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+                    <p class="roll_txtline">1OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
                   </a>
                 </div>
               </li>
               <li class="imglist1">
                 <div class="roll_content">
                   <a href="javascript:;">
-                    <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+                    <p class="roll_txtline">2OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
                   </a>
                 </div>
               </li>
               <li class="imglist2">
                 <div class="roll_content">
                   <a href="javascript:;">
-                    <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+                    <p class="roll_txtline">3OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
                   </a>
                 </div>
               </li>
@@ -146,27 +276,27 @@
               <ul class="rollingbtn">
                 <li class="seq butt0">
                   <a href="#butt"
-                    ><img src="img/btn_rollbutt_on.png" alt="1번"
+                    ><img src="./img/btn_rollbutt_on.png" alt="1번"
                   /></a>
                 </li>
                 <li class="seq butt1">
                   <a href="#butt"
-                    ><img src="img/btn_rollbutt_off.png" alt="2번"
+                    ><img src="./img/btn_rollbutt_off.png" alt="2번"
                   /></a>
                 </li>
                 <li class="seq butt2">
                   <a href="#butt"
-                    ><img src="img/btn_rollbutt_off.png" alt="3번"
+                    ><img src="./img/btn_rollbutt_off.png" alt="3번"
                   /></a>
                 </li>
                 <li class="rollstop">
                   <a href="#" class="stop"
-                    ><img src="img/btn_roll_stop.png" alt="멈춤"
+                    ><img src="./img/btn_roll_stop.png" alt="멈춤"
                   /></a>
                 </li>
                 <li class="rollplay">
                   <a href="#" class="play"
-                    ><img src="img/btn_roll_play.png" alt="재생"
+                    ><img src="./img/btn_roll_play.png" alt="재생"
                   /></a>
                 </li>
               </ul>
@@ -188,7 +318,7 @@
                 >
                   <img
                     class="img_topplace"
-                    src="img/no_image.png"
+                    src="./img/no_image.png"
                     alt="OOOO OOOOO"
                     style="opacity: 0.7"
                   />
@@ -207,7 +337,7 @@
                 >
                   <img
                     class="img_topplace"
-                    src="img/no_image.png"
+                    src="./img/no_image.png"
                     alt="OOOO OOOOO"
                     style="opacity: 0.7"
                   />
@@ -226,7 +356,7 @@
                 >
                   <img
                     class="img_topplace"
-                    src="img/no_image.png"
+                    src="./img/no_image.png"
                     alt="OOOO OOOOO"
                     style="opacity: 0.7"
                   />
@@ -253,7 +383,7 @@
             </p>
             <div class="bbs_line">
               <h3>NOTICE</h3>
-              <ul class="notice_recent">
+              <l class="notice_recent">
                 <li>
                   <a href="javascript:;">OOOO OOOOO (스프링OOOO OOOOO)</a>
                 </li>
@@ -265,13 +395,13 @@
                   >
                 </li>
                 <li><a href="javascript:;">OOOO OOOOO 서비스 점검 안내</a></li>
-              </ul>
+              </l>
             </div>
           </div>
         </div>
         <!-- //카카오톡상담및최근공지사항영역 -->
       </div>
-      <!-- //메인콘텐츠영역 -->
+      <!-- //메이콘텐츠영역 -->
 
       <!-- 푸터메뉴및사업자정보영역 -->
       <footer>
