@@ -19,11 +19,43 @@
     <!-- 여기서부터는 사용자 정의형 스타일 + 스크립트 추가 -->
     <link rel="stylesheet" href="/home/css/mobile.css" />
     <script src="/home/js/main.js"></script>
+    <!-- 메인슬라이드 코어 임포트 -->
+    <script src="./js/slidemain.js"></script>
     <style>
       /* 테블릿용 메인페이지 스타일 지정(아래) */
     </style>
     <script>
-      $(document).ready(function () {});
+      // 메인페이지 전용 슬라이드 호출 부분
+      $(document).ready(function () {
+        // 위에서 선언한 함수, 변수 사용
+        slideAuto = setTimeout('play_w("right")', 3000); // 3초마다 play_w 함수 실행
+        var slidePlayHide = setTimeout(function () {
+          $(".rollplay").css("display", "none");
+        }, 3000); // 3초 후에 rollplay 클래스 플레이버튼 영역을 숨김
+        $(".rollstop").click(function () {
+          // this는 클릭한 본인 태그
+          $(this).hide(); //현재 stop버튼 숨김
+          $(".rollplay").css("display", "inline-block");
+          if (slideAuto) {
+            clearTimeout(slideAuto); // slideAuto변수가 없다면, play_w함수를 실행 중지.
+          }
+        });
+        $(".rollplay a").click(function () {
+          $(this).parent().hide();
+          $(".rollstop").css("display", "inline-block");
+          play_w("right");
+        });
+        $(".rollingbtn li.seq a").each(function (index) {
+          $(this).click(function () {
+            $(".rollplay").hide();
+            $(".rollstop").css("display", "inline-block");
+            if (slideAuto) {
+              clearTimeout(slideAuto); //슬라이드 중지
+            }
+            play_w(index); // 슬라이드 재생: 단 시작위치는 클릭한 index부터 무한반복
+          });
+        });
+      });
     </script>
   </head>
   <body>
