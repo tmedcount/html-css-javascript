@@ -387,6 +387,7 @@ li.imglist2 {
 /* 푸터스타일 지정 */
 footer {
   border-top: 1px solid #ddd;
+  text-align: left;
 }
 .foot_area {
   /* 모바일에서는 의미 없고, 태블릿이상에서 의미 있는 스타일*/
