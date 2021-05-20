@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* 게시판 공통 영역 bbs(bulletin board system)*/
+.bbsListTbl a:hover,
+.pagination a:hover,
+.bbs_title a:hover,
+.tit_lbl a:hover {
+  color: #000 !important;
+}
+/* // 게시판 공통 영역 */
+
+/* 메인 상단 위치 표시 영역*/
+.location_area {
+  height: 260px;
+  background-color: dodgerblue;
+}
+.tit_page {
+  padding: 140px 0 0 0;
+  margin: 0 45px;
+  border-bottom: 1px solid #ccc;
+  font: 30px "Arial Narrow";
+  color: #fff;
+  letter-spacing: 3px;
+  text-align: left;
+}
+.location {
+  display: none;
+}
+ul.page_menu {
+  display: block;
+  padding: 10px 0 0 45px;
+}
+ul.page_menu li {
+  float: left;
+  padding-bottom: 10px;
+}
+ul.page_menu li a.on {
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  background: none;
+}
+ul.page_menu li a {
+  display: block;
+  margin-right: 20px;
+  font-size: 15px;
+  color: #ddd;
+}
+.tit_page .in {
+  font-variant: small-caps;
+}
+/* // 메인 상단 위치 표시 영역*/
