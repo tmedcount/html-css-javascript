@@ -45,6 +45,253 @@ ul.page_menu li a {
   color: #ddd;
 }
 .tit_page .in {
-  font-variant: small-caps;
+  font-variant: small-caps; /* 영문의 대문자의 크기 지정 */
 }
 /* // 메인 상단 위치 표시 영역*/
+
+/* 게시판리스트 영역 */
+.bodytext_area {
+  box-sizing: border-box;
+  padding: 0px;
+}
+.minisrch_form {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 20px;
+}
+.minisrch_form .tbox {
+  padding: 0px 5px 0px 30px;
+  width: 200px;
+  height: 35px;
+  line-height: 35px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: url(./img/ico_search.png) no-repeat 10px 50%;
+  background-size: 15px;
+}
+.btn_srch {
+  display: inline-block;
+  width: 70px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 35px;
+  vertical-align: middle;
+  background: #384d75;
+  color: #fff !important;
+  border: none;
+}
+.minisrch_form legend {
+  text-indent: -9999px; /* 웹 접근성(시각장애인을 위해서) */
+  font-size: 0px;
+}
+input::placeholder {
+  color: #999; /* IE용 크로스브라우징 처리 */
+}
+.bbsListTbl {
+  width: 100%;
+  border-top: 2px solid #384d75;
+}
+.bbsListTbl th:nth-child(1) {
+  /* 모바일에서는 가로를 단순하게 처리하는 용도*/
+  display: none;
+}
+.bbsListTbl th:nth-child(2) {
+  width: 70%; /* 모바일 전용 */
+}
+.bbsListTbl th:nth-child(3) {
+  display: none;
+}
+.bbsListTbl th:nth-child(4) {
+  width: 30%;
+}
+.bbsListTbl th {
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0px;
+  box-sizing: border-box;
+  height: 45px;
+  background: #fef3fa;
+}
+.bbsListTbl td:nth-child(1) {
+  display: none;
+}
+.bbsListTbl td:nth-child(3) {
+  display: none;
+}
+.bbsListTbl td {
+  text-align: center;
+  line-height: 1.3;
+  border-bottom: 1px solid #ccc;
+}
+.bbsListTbl td:nth-child(2) {
+  text-align: left;
+}
+.bbsListTbl th,
+.bbsListTbl td {
+  padding: 10px;
+  box-sizing: border-box;
+  height: 45px;
+}
+.bbsListTbl td a {
+  /* 모바일 전용 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  width: 320px;
+}
+.pagination {
+  padding: 40px 0px 0px;
+}
+.pagination a.pbtn {
+  display: inline-block;
+  padding: 7px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0px; /* 웹접근성 */
+}
+.pagination a {
+  display: inline-block;
+}
+.pagination a .currentpage {
+  border-radius: 3px;
+  background: #383838;
+  color: #fff;
+}
+.pagination a .pagenum {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn_line {
+  padding: 20px 0px;
+}
+.btn_line a:first-child {
+  /* 버튼이 여러개 있을 때 적용 */
+  margin-left: 0px;
+}
+.btn_baseColor {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: #384d75;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff !important;
+  text-align: center;
+  vertical-align: bottom;
+  border: none;
+}
+/* // 게시판리스트 영역 */
+
+/* 이 후 태블릿 스타일 지정 */
+/* 테블릿용 메인페이지 스타일 지정(아래) 801px~ */
+
+@media all and (min-width: 801px) {
+  /* 태블릿 + PC용 스타일 */
+  .bbsListTbl th:nth-child(1) {
+    display: table-cell;
+    margin-top: 7px;
+    width: 6%;
+    margin-top: 7px; /* 크로싱브라우징 */
+  }
+  .bbsListTbl th:nth-child(2) {
+    width: 68%;
+  }
+  .bbsListTbl th:nth-child(3) {
+    display: table-cell;
+    margin-top: 7px;
+  }
+  .bbsListTbl th:nth-child(4) {
+    width: 20%;
+  }
+  .bbsListTbl td:nth-child(1) {
+    display: table-cell;
+  }
+  .bbsListTbl td:nth-child(3) {
+    display: table-cell;
+  }
+  .btn_baseColor {
+    width: 125px;
+    font-weight: normal;
+  }
+  .bbsListTbl td a {
+    /* 태블릿 + PC용 */
+    overflow: inherit; /* 초기화 */
+    text-overflow: inherit;
+    white-space: inherit;
+    display: inherit;
+    width: inherit;
+  }
+}
+
+/* 게시판 글보기 영역 */
+.bbsview_list {
+  padding-bottom: 30px;
+  border-top: 2px solid #384d75;
+  text-align: left;
+}
+.bbsview_list li {
+  box-sizing: border-box;
+  padding: 0px 15px;
+  border-bottom: 1px solid #ccc;
+  color: #666;
+  font-size: 14px;
+  line-height: 20px;
+}
+.bbsview_list .bbs_title {
+  width: 100%;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.bbsview_list .bbs_hit {
+  overflow: hidden;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  width: 50%;
+}
+.bbsview_list .bbs_date {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  width: 50%;
+}
+.bbsview_list .bbs_content {
+  clear: both; /* float 기능을 해제, 위, 아래 float 속성이 있으면 보통 해준다*/
+  min-height: 200px; /* 내용이 비었더라도 최소 높이 200px 자리를 차지. 단, 내용이 많다면 200px이상으로 자리를 차지한다. */
+  padding: 20px 15px !important;
+}
+.btn_bbs {
+  /* 모바일 전용 */
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 100%;
+  height: 35px;
+  font-size: 14px;
+  line-height: 35px;
+  background: #384d75;
+  color: #fff !important;
+  text-align: center;
+}
+/* // 게시판 글보기 영역 */
+
+/* 테블릿용 메인페이지 스타일 지정(아래) 801px~ */
+@media all and (min-width: 801px) {
+  .btn_bbs {
+    /* 뷰페이지 버튼 스타일 */
+    width: 70px;
+    float: none;
+    text-align: center;
+  }
+}

@@ -1,6 +1,9 @@
 #### 2021.05.20 (목)
 
--
+- egov - 자바기반 -> JDK(Java Developement )
+- tomcat - 이클립스에서 웹프로그램 결과를 확인하는 라이브 서버(localhost:8080)
+- apach - VSCode에서 HTML 결과를 확인하는 라이브 서버(localhost:5050)
+- JRE - Java Runtime Environment(자바실행환경) - 자바 앱을 실행 할 때만 cf.) JDK - 개발하고 실행 할 때
 
 #### 2021.05.18 (화)
 
