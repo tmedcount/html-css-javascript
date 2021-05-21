@@ -295,3 +295,104 @@ input::placeholder {
     text-align: center;
   }
 }
+
+/* 게시판 글쓰기 폼 */
+.appForm {
+  margin: 20px auto;
+  text-align: left;
+}
+.appForm legend {
+  font-size: 0px; /* 시각장애인용 처리 - 웹접근성 */
+}
+.pilsoo_item::before {
+  content: "*";
+  display: inline-block;
+  position: absolute;
+  left: 5px;
+  width: 15px;
+  font-weight: bold;
+  font-size: 17px;
+  color: red;
+}
+.info_pilsoo {
+  position: relative;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+  font-size: 15px;
+  color: red;
+}
+.app_list {
+  padding: 10px 0px;
+}
+.app_list li {
+  position: relative;
+  padding: 10px 0px;
+  border-bottom: 1px solid #ccc;
+}
+.app_list li .tit_lbl {
+  float: none;
+  line-height: 50px;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 20px;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: -2px;
+}
+.app_content {
+  float: none;
+  width: auto;
+  border: 1px solid #ccc;
+  margin-left: 1px;
+}
+.app_content input {
+  border: none;
+  width: inherit; /* 부모 영역(브라우저 기본 값)의 input태그의 너비 값을 상속 받음 - 초기화 */
+  box-sizing: border-box;
+  display: inline-block;
+  height: 45px;
+  padding: 0px 10px;
+  line-height: normal;
+  font-size: 15px;
+}
+.appForm textarea {
+  height: 130px;
+  box-sizing: border-box; /* 좌우 스크롤바 사라짐 - 테두리까지 너비 값에 포함시킴 - 없으면 100%+2px */
+  padding: 10px;
+  font-size: 15px;
+  letter-spacing: -1px;
+  color: #444;
+  border: none;
+}
+.appForm textarea::placeholder {
+  /* 최신 브라우저에 적용*/
+  color: #999;
+}
+textarea:-ms-input-placeholder {
+  /* ms사 브라우저에 적용 - CrossBrowsing */
+  color: #999;
+}
+.btn_baseColor {
+  margin-top: 10px;
+}
+/* // 게시판 글쓰기 폼 */
+
+@media all and (min-width: 801px) {
+  /* 글쓰기 폼 스타일 */
+  .app_list .tit_lbl {
+    width: 20%;
+  }
+  .app_list .app_content {
+    width: 79%;
+    float: right;
+    border: 1px solid #ccc;
+  }
+  .btn_line {
+    text-align: center;
+  }
+  .appForm textarea {
+    height: 230px;
+  }
+  /* // 글쓰기 폼 스타일 */
+}
