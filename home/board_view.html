@@ -26,9 +26,33 @@
     <link rel="stylesheet" href="/home/css/board.css" />
     <script src="/home/js/main.js"></script>
     <!-- 메인슬라이드 코어 임포트 -->
+    <!-- 폰트어썸 CSS 임포트 -->
+    <link
+      rel="stylesheet"
+      href="/admin/plugins/fontawesome-free/css/all.min.css"
+    />
     <script src="./js/slidemain.js"></script>
+    <!-- 부트스트랩 CSS코어 임포트 -->
+    <link
+      rel="stylesheet"
+      href="/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
+    />
+    <!-- 부트스트랩 JS코어 임포트 -->
+    <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLte 전용 CSS코어 임포트 -->
+    <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css" />
     <style>
-      /* 모바일용 게시판 스타일 */
+      /* 모바일용 댓글 스타일 */
+      .row {
+        margin: 0px;
+      }
+      .timeline, .card-default {
+        text-align: left;
+        margin: 0px 5px;
+      }
+      .bs-stepper-content {
+        padding: 20px 10px;
+      }
 
       /* 테블릿용 메인페이지 스타일 지정(아래) 801px~ */
       @media all and (min-width: 801px) {
@@ -39,7 +63,9 @@
     </style>
     <script>
       // 메인페이지 전용 슬라이드 호출 부분
-      $(document).ready(function () {});
+      $(document).ready(function () {
+
+      });
     </script>
   </head>
   <body>
@@ -130,7 +156,7 @@
                 바랍니다. <br />
                 감사합니다. <br /><br />
                 [당첨자]<br />
-                김용* kimyong***@naver.com <br />
+                김용* kimyong***@naver.com<br />
                 인봉* in2018a***@naver.com<br />
                 예경* yyhong***@naver.com<br />
                 한진* haha***@naver.com<br />
@@ -148,6 +174,80 @@
           </p>
         </div>
         <!-- //메인본문영역 -->
+
+        <!-- 댓글영역 -->
+        <div class="row">
+          <div class="col-md-12">
+            <!-- 댓글 입력폼 -->
+            <div class="card-default">
+              <div class="card-header">
+                <h3 class="card-title">댓글 쓰기</h3>
+              </div>
+              <div class="card-body p-0">
+                <div class="bs-stepper linear">
+                  <div class="bs-stepper-header" role="tablist">
+                    <!-- your steps here -->
+                    <div class="line"></div>
+                  </div>
+                  <div class="bs-stepper-content">
+                    <!-- your steps content here -->
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                      <div class="form-group">
+                        <label for="writer">작성자</label>
+                        <input type="text" class="form-control" id="writer" placeholder="작성자를 입력하세요">
+                      </div>
+                      <div class="form-group">
+                        <label for="reply_text">댓글내용</label>
+                        <input type="text" class="form-control" id="reply_text" placeholder="댓글내용을 입력하세요">
+                      </div>
+                    </div>
+                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <button type="submit" class="btn btn-warning" id="btn_reply_write">댓글등록</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                아래 댓글리스트 버튼을 클릭하시면 댓글 목록이 출력이 됩니다.
+              </div>
+            </div>
+            <!-- // 댓글 입력폼 -->
+          </div>
+          <div class="col-md-12">
+            <!-- The time line -->
+            <div class="timeline">
+              <!-- timeline time label -->
+              <div class="time-label">
+                <span class="bg-red">댓글 리스트[<span>1<span>]</span>
+              </div>
+              <!-- time-label 이 후 after요소로  -->
+              <!-- /.timeline-label -->
+              <!-- timeline item -->
+              <!-- 댓글 리스트를 자바스크립트의 템플릿으로 만든다. -->
+              <!-- 고전 append 함수를 사용하지 않고, handlebars라는 확장 프로그램 임포트 -->
+              <!-- 장점은 기존 퍼블리셔가 만든 태그를 그대로 사용 -->
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+              <script id="template" type="text/x-handlebars-template">
+                {{#each .}}
+                  <div class="div_template" data-rno="{{rno}}">
+                    <i class="fas fa-envelope bg-blue"></i>
+                    <div class="timeline-item">
+                      <h3 class="timeline-header">{{replyer}}</h3>
+                      <div class="timeline-body">{{reply_text}}</div>
+                      <div class="timeline-footer">
+                        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-reply">수정</a>
+                      </div>
+                    </div>
+                </div>
+                {{/each}}
+              </script>
+              <!-- END timeline item -->
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- // 댓글영역 -->
       </div>
       <!-- //메인콘텐츠영역 -->
 
@@ -189,5 +289,72 @@
       <p class="to_top"><a href="#wrap" class="s_point">TOP</a></p>
     </div>
     <!-- //하단퀵메뉴영역 -->
+
+    <!-- 모달창 -->
+    <div class="modal fade" id="modal-reply">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">작성자명</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="text" class="form-control" name="modal_reply_text" id="modal_reply_text" value="댓글 내용 출력">
+          </div>
+          <div class="modal-footer"> <!-- justify-content-between -->
+            <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-primary">수정</button>
+            <button type="button" class="btn btn-danger">삭제</button>
+            <input type="hidden" id="rno" name="rno">
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script>
+      var printReplyLIst = function(data, templateData, target) {
+        var template = Handlebars.compile(templateData.html()); // 템플릿을 태그로 변환
+        var html = template(data); // 파싱 처리
+        $('.div_template').remove(); // 기존 댓글 데이터 지움(누적 방지)
+        target.after(html)
+      };
+      $(document).ready(function(){
+        $('#btn_reply_write').click(function(){
+          // alert('댓글 등록 버튼');
+          $.ajax({
+            method: 'get',
+            url: './board_view.html', // RestAPI URL 입력
+            dataType: 'text',
+            success: function(result) {
+              // alert('RestAPI 성공!');
+              result = [
+					                //{rno:댓글번호,bno:게시물번호,replytext:"첫번째 댓글",replyer:"admin",regdate:타임스탬프}
+                        {rno:2,bno:2,reply_text:"두번째 댓글입니다.",replyer:"관리자",reg_date:1601234512345}, // 두번째 댓글 데이터
+                        {rno:1,bno:2,reply_text:"첫번째 댓글입니다.",replyer:"관리자",reg_date:1601234512345} // 첫번째 댓글 데이터
+				                ];
+                        // (jsonDate, 바인딩(파싱)위치, 화면출력위치)
+                        printReplyLIst(result, $('#template'), $('.time-label'));
+            },
+            error: function() {
+              alert('RestAPI서버가 작동하지 않습니다.')
+            }
+          });
+        })
+      });
+    </script>
+    <script>
+      // 댓글 리스트에서 수정 버튼 클릭 시 현재 선택한 값을 모달창에 보여주눈 것을 구현
+      $(document).ready(function(){
+        $('.timeline').on('click', '.div_template', function(){
+          $('#rno').val($(this).attr('data-rno'));
+          $('#modal_reply_text').val($(this).find('.timeline-body').text());
+          $('.modal-title').html($(this).find('.timeline-header').text());
+        });
+      });
+    </script>
   </body>
 </html>
