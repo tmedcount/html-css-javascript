@@ -346,9 +346,13 @@ input::placeholder {
   border: 1px solid #ccc;
   margin-left: 1px;
 }
+.radio_area {
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
 .app_content input {
   border: none;
-  width: inherit; /* 부모 영역(브라우저 기본 값)의 input태그의 너비 값을 상속 받음 - 초기화 */
+  /* width: inherit; 부모 영역(브라우저 기본 값)의 input태그의 너비 값을 상속 받음 - 초기화 */
   box-sizing: border-box;
   display: inline-block;
   height: 45px;
