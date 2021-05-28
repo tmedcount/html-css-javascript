@@ -2,6 +2,13 @@
 
 - VSC로 작업한 내용을 이클립스 resources폴더(admin, home, root파일까지)로 배치
 
+#### 2021.05.28 (금)
+
+- 뒤로가기를 허용하면 게시물 테러가 가능하다
+- 뒤로가기를 허용하지 않게 페이지를 이동하는 방식(JS에는 location.replace함수 사용)
+- cf.) 허용은 location.href="" 사용(함수가 아니고 변수 )
+-
+
 #### 2021.05.27 (목)
 
 - admin/board-list.html
